@@ -6,6 +6,24 @@
 
 // Property of valid triangle : SUM OF ANY 2 SIDES LENGTHS > 3rd SIDE LENGTH
 
+/*
+Video Summary :
+Approach-1 (Brute Force)
+Check all triplets (i, j, k) and verify the triangle inequality.
+Simple and straightforward.
+Works well only for small arrays due to checking every combination.
+
+Approach-2 (Binary Search)
+Sort the array, then for each pair (i, j), use binary search to find the largest k such that nums[i] + nums[j] greater than nums[k].
+Efficiently counts all valid third sides without checking each element individually.
+Handles duplicates and zeros naturally after sorting.
+
+Approach-3 (Two Pointer)
+Sort the array and fix the largest side nums[k], then use two pointers i and j to find all valid smaller sides. Adds (j - i) to the count whenever nums[i] + nums[j] greater than nums[k], counting all valid triangles at once.
+Most intuitive and efficient among the three approaches.
+
+*/
+
 
 /*************************************************************** C++ *************************************************/
 //Approach-1 (Brute Force)
