@@ -1,7 +1,7 @@
 
 /*
-    MY YOUTUBE VIDEO ON THIS Qn : https://www.youtube.com/watch?v=JpXlsCAD1kg
-    Leetcode Link               : https://leetcode.com/problems/count-number-of-nice-subarrays
+    Youtube link:                 https://www.youtube.com/watch?v=JpXlsCAD1kg
+    Leetcode Link:                https://leetcode.com/problems/count-number-of-nice-subarrays
 */
 
 
@@ -23,6 +23,9 @@ For each element, update currSum by adding 1 if the element is odd (nums[i] % 2)
 Check if currSum - k exists in mp. If it does, increment count by the frequency of currSum - k.
 Update mp to include the current currSum.
 This method ensures that each subarray's prefix sum is calculated in linear time, and the hashmap provides efficient lookups for the required subarray sums.
+
+
+
 
 Approach 2: Sliding Window (Khandani Template with a Twist)
 
@@ -90,7 +93,7 @@ public:
         //Best example to understand the use of count variable - {2, 1, 2, 1}, output : 6
         while(j < n) {
 
-            if(nums[j] % 2 != 0) { //ODD
+            if(nums[j] % 2 != 0) { //ODD    Expanding
                 oddCount++;
                 count    = 0; //We need to reset this to avoid over counting. Example : [1,1,2,1,1], k = 3
             }
@@ -98,7 +101,7 @@ public:
             while(oddCount == k) {
                 count++;
 
-                if(i < n && nums[i] % 2 == 1) { //ODD
+                if(i < n && nums[i] % 2 == 1) { //ODD   Shrinking
                     oddCount--;
                 }
                 i++;
