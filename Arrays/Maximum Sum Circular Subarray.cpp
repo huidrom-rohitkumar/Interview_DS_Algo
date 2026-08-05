@@ -52,7 +52,7 @@ public:
 };
 
 
-//Approach-2 (Writing everything in one loop) - O(N)
+//Approach-2 (Writing everything in one loop) - O(N), space - O(1)
 class Solution {
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
@@ -75,9 +75,10 @@ public:
          
         }
         
-        int circular_sum = SUM - k_sum_min;
+        int circular_sum = SUM - k_sum_min;   // becomes 0 if all elements negative 
         
-        if(k_sum_max > 0) {
+        if(k_sum_max > 0)  // consider to ensure that 0 is not returned(invalid subarray)
+        {
             return max(k_sum_max, circular_sum);
         }
         
