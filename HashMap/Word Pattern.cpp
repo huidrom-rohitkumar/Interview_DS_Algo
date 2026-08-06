@@ -4,6 +4,10 @@
 	Leetcode Link 			: https://leetcode.com/problems/word-pattern/
 */
 
+
+// STRGINGSTREAM concept learn here
+
+
 //Approach-1 (using map and set)
 class Solution {
 public:
