@@ -1,14 +1,13 @@
-/*     Scroll below to see JAVA code also    */
+
 /*
     MY YOUTUBE VIDEO ON THIS Qn : https://www.youtube.com/watch?v=Lye_llDcSuI
-    Company Tags                : Will update soon
     Leetcode Link               : https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k
 */
 
 
 /************************************************************ C++ ************************************************/
 //Approach-(simple remainder maths)
-//T.C : O(n)
+//T.C : O(n + k)
 //S.C : O(k)
 class Solution {
 public:
@@ -18,14 +17,17 @@ public:
         //remainder r has frequency x
 
         for(int &num : arr) {
-            int rem = (num%k + k) % k; //handling negative remainders
+            int rem = (num % k + k) % k; //handling negative remainders
             mp[rem]++;
         }
 
-        if(mp[0] % 2 != 0) {
+        // Check if the frequency of numbers with 0 remainder is even
+        if(mp[0] % 2 != 0)    // handle edge cases like arr=[5,10,15,3],k=5
+        {
             return false;
         }
 
+        // Check if each remainder has a complement remainder with matching frequency
         for(int rem = 1; rem <= k/2; rem++) {
             int counterHalf = k - rem;
             if(mp[counterHalf] != mp[rem]) {
@@ -37,34 +39,20 @@ public:
     }
 };
 
+/*
+Summary :
+The approach uses remainder arithmetic to solve the problem of determining if the array can be rearranged into pairs whose sums are divisible by a given integer k. Here's a brief summary of the method:
 
-/************************************************************ JAVA ************************************************/
-//Approach-(simple remainder maths)
-//T.C : O(n)
-//S.C : O(k)
-class Solution {
-    public boolean canArrange(int[] arr, int k) {
-        int[] mp = new int[k];  // Array to store remainders frequency
+Calculate Remainder Frequencies:
 
-        // Calculate the remainder frequencies
-        for (int num : arr) {
-            int rem = (num % k + k) % k;  // Handle negative remainders
-            mp[rem]++;
-        }
+Traverse through the array and compute the remainders when each element is divided by k.
+Use an array mp of size k to count the frequency of these remainders, handling negative remainders correctly.
+Check Conditions for Valid Pairing:
 
-        // Check if the frequency of numbers with 0 remainder is even
-        if (mp[0] % 2 != 0) {
-            return false;
-        }
+For elements with a remainder of 0, their frequency must be even to ensure they can be paired.
+For other remainders rem, ensure that mp[rem] (frequency of rem) matches mp[k - rem] (frequency of its complement remainder) to allow pairing.
+Return Result:
 
-        // Check if each remainder has a complement remainder with matching frequency
-        for (int rem = 1; rem <= k / 2; rem++) {
-            int counterHalf = k - rem;
-            if (mp[counterHalf] != mp[rem]) {
-                return false;
-            }
-        }
+If all conditions are met, return true; otherwise, return false.
+*/
 
-        return true;
-    }
-}
