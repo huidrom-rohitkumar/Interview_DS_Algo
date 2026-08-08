@@ -5,6 +5,11 @@
 */
 
 /*
+Tip:
+If some relation between index and value at index, try to bring index and associated value to same side
+eg: (j-i) = (nums[j]-nums[i])    ====>     (nums[i]-i) == (nums[j]-j)
+
+
 
 Video Summary :
 Transforming the Array:
