@@ -4,7 +4,8 @@
     Leetcode Link               : https://leetcode.com/problems/fibonacci-number/
 */
 
-// Recursion only approach: imte- O(2^n), space - O(n) --recursion stack
+
+// Recursion only approach for fibonacci: time- O(2^n), space - O(n) --recursion stack
 
 //Approach-1 (Using Recursion + Memoization)
 // time: O(n), space: O(n) 
