@@ -7,6 +7,21 @@
     NOTE : For GfG, you need to take Module with pow(10, 9) + 7 (mentioned in the Qn) to avoid overflow
 */
 
+/*
+| Approach                          |      Time | Extra Space | Key idea                      |
+| --------------------------------- | --------: | ----------: | ----------------------------- |
+| 1. Brute-force recursion          | **O(2ⁿ)** |    **O(n)** | Try 1-step/2-step recursively |
+| 2. Top-down DP / Memoization      |  **O(n)** |    **O(n)** | Recursion + cache             |
+| 3. Bottom-up DP / Tabulation      |  **O(n)** |    **O(n)** | Build answers from 1 → n      |
+| 4. Bottom-up + Space Optimization |  **O(n)** |    **O(1)** | Only keep previous 2 states   |
+*/
+
+//Brute recursion
+int rec(int n){
+    if(n<=3)return n;
+    return rec(n-1)+rec(n-2);
+}
+
 //Approach-1 (Recursion with Memo) : Top Down
 class Solution {
 public:
