@@ -4,7 +4,10 @@
     Leetcode Link               : https://leetcode.com/problems/fibonacci-number/
 */
 
+// Recursion only approach: imte- O(2^n), space - O(n) --recursion stack
+
 //Approach-1 (Using Recursion + Memoization)
+// time: O(n), space: O(n) 
 class Solution {
 public:
     int t[31];
@@ -28,6 +31,7 @@ public:
 
 
 //Approach-2 (Using Bottom Up DP)
+// time and space both O(n)
 class Solution {
 public:
     int fib(int n) {
@@ -52,6 +56,7 @@ public:
 };
 
 
+// time O(n), space O(1)
 //Approach-3 (Constant Space Complexity)
 class Solution {
 public:
